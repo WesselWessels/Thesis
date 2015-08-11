@@ -1,0 +1,44 @@
+\select@language {english}
+\contentsline {chapter}{Declaration}{i}
+\contentsline {chapter}{Abstract}{ii}
+\select@language {afrikaans}
+\contentsline {chapter}{Uittreksel}{iii}
+\select@language {english}
+\contentsline {chapter}{Acknowledgements}{iv}
+\contentsline {chapter}{Dedications}{v}
+\select@language {afrikaans}
+\select@language {english}
+\contentsline {chapter}{Contents}{vi}
+\contentsline {chapter}{List of Figures}{viii}
+\contentsline {chapter}{List of Tables}{ix}
+\contentsline {chapter}{Nomenclature}{x}
+\contentsline {chapter}{\chapternumberline {1}Introduction}{1}
+\contentsline {section}{\numberline {1.1}Background}{1}
+\contentsline {section}{\numberline {1.2}Related Work}{1}
+\contentsline {section}{\numberline {1.3}Objectives}{1}
+\contentsline {chapter}{\chapternumberline {2}Background}{2}
+\contentsline {section}{\numberline {2.1}History}{2}
+\contentsline {chapter}{\chapternumberline {3}System Design}{3}
+\contentsline {section}{\numberline {3.1}Framework}{3}
+\contentsline {subsection}{\numberline {3.1.1}REST API for payment management}{3}
+\contentsline {subsubsection}{\numberline {3.1.1.1}The concept of the Bitcoin payment}{4}
+\contentsline {subsubsection}{\numberline {3.1.1.2}The /payment method}{5}
+\contentsline {subsubsection}{\numberline {3.1.1.3}/payment/\{PUBLIC\_ADDRESS\} and /payment/\{ID\}}{5}
+\contentsline {subsubsection}{\numberline {3.1.1.4}/balance}{5}
+\contentsline {subsubsection}{\numberline {3.1.1.5}/payout}{5}
+\contentsline {subsection}{\numberline {3.1.2}Wallet Application}{5}
+\contentsline {subsection}{\numberline {3.1.3}Bitcoin Interface}{6}
+\contentsline {subsection}{\numberline {3.1.4}Use-case Application}{6}
+\contentsline {chapter}{\chapternumberline {4}Detail Design}{7}
+\contentsline {section}{\numberline {4.1}Back-end}{7}
+\contentsline {subsection}{\numberline {4.1.1}Back-end Server}{7}
+\contentsline {subsection}{\numberline {4.1.2}Back-end Web Framework}{7}
+\contentsline {section}{\numberline {4.2}Social Media Platform}{7}
+\contentsline {chapter}{\chapternumberline {5}Tests}{9}
+\contentsline {section}{\numberline {5.1}Quantative}{9}
+\contentsline {section}{\numberline {5.2}Qualitive}{9}
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{10}
+\contentsline {section}{\numberline {6.1}The Conclusion}{10}
+\contentsline {chapter}{Appendices}{11}
+\contentsline {appendix}{\chapternumberline {A}No appendices yet}{12}
+\contentsline {chapter}{Bibliography}{13}

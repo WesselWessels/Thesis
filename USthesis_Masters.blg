@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: USthesis_Masters.aux
+The style file: IEEEtran.bst
+A level-1 auxiliary file: frontmatter/Chap-Front.aux
+A level-1 auxiliary file: frontmatter/Nomencl.aux
+A level-1 auxiliary file: contents/Chap-1.aux
+A level-1 auxiliary file: contents/Chap-2.aux
+A level-1 auxiliary file: contents/Chap-3.aux
+A level-1 auxiliary file: contents/Chap-4.aux
+A level-1 auxiliary file: contents/Chap-5.aux
+A level-1 auxiliary file: contents/Chap-6.aux
+A level-1 auxiliary file: contents/App-1.aux
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: backmatter/Thesis.bib
+-- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+You've used 2 entries,
+            4039 wiz_defined-function locations,
+            831 strings with 7674 characters,
+and the built_in function-call counts, 1059 in all, are:
+= -- 80
+> -- 12
+< -- 5
++ -- 6
+- -- 2
+* -- 59
+:= -- 203
+add.period$ -- 4
+call.type$ -- 2
+change.case$ -- 2
+chr.to.int$ -- 12
+cite$ -- 2
+duplicate$ -- 74
+empty$ -- 84
+format.name$ -- 2
+if$ -- 210
+int.to.chr$ -- 0
+int.to.str$ -- 2
+missing$ -- 13
+newline$ -- 33
+num.names$ -- 2
+pop$ -- 36
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 73
+stack$ -- 0
+substring$ -- 30
+swap$ -- 48
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 2
+warning$ -- 0
+while$ -- 6
+width$ -- 3
+write$ -- 43
