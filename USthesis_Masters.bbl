@@ -34,4 +34,10 @@ Oracle.com, ``{What Are RESTful Web Services?}'' [Online]. Available:
   \url{https://docs.oracle.com/javaee/6/tutorial/doc/gijqy.html}
 \BIBentrySTDinterwordspacing
 
+\bibitem{LLC}
+\BIBentryALTinterwordspacing
+C.~o.~G. LLC, ``{Introduction to ChoiceScript}.'' [Online]. Available:
+  \url{https://www.choiceofgames.com/make-your-own-games/choicescript-intro/}
+\BIBentrySTDinterwordspacing
+
 \end{thebibliography}

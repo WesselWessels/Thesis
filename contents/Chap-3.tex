@@ -57,6 +57,7 @@ From our requirements for the REST API, we clearly require (at least) the follow
 \end{itemize}
 
 \subsubsection{The /payment method}
+\label{sct:payment}
 
 The /payment method is the core of the REST API. It is used to make a payment request with a specified amount of Bitcoin and a description of the transaction. The /payment method returns a Bitcoin public address and a payment ID. 
 
@@ -84,11 +85,13 @@ In this manner, a fully functional Bitcoin wallet is realised. The third party s
 
 The advantage of using the WeChat platform is the security built in to the platform, as well as an existing userbase. 
 
+The Wallet Application will be directly connected to the back-end of the REST API. Thus, payment requests will be referable directly from the Wallet Application without needing to reference the Bitcoin Address. It will be able to reference the request using the payment ID mentioned in \ref{sct:payment}
+
 \subsection{Bitcoin Interface}
 
-To connect to the Bitcoin peer-to-peer network, a Bitcoin client is needed. The standard way of doing this is running the Bitcoin open source software on a server. This is very network and processor intensive. Thus, an alternative is used for interfacing with the Bitcoin network. 
+To connect to the Bitcoin peer-to-peer network, a Bitcoin client is needed. The standard way of doing this is running the Bitcoin open source software on a server. This is very network and processor intensive. For development and testing, it will be quite expensive to run the Bitcoin software. Thus, an alternative is required for interfacing with the Bitcoin network. Fortunately, there are services that provide access to most of the Bitcoin operations using their API's. 
 
-We require the following from such an interface:
+We require the following from such a service:
 
 \begin{itemize}
 	\item Get the balance from an address,
@@ -97,7 +100,8 @@ We require the following from such an interface:
 	\item It must be able to use the Testnet
 \end{itemize}
 
-After considering several options, a service called chain.com was chosen. Chain.com is a free service that satisfies all the requirements. It is perfect to use this service as a proof of concept, but in practice one would rather run a full Bitcoin node to minimize reliance on third-party services.
+The details of the chosen service is covered in chapter \ref{chp:Detail Design}.
+% After considering several options, a service called chain.com was chosen. Chain.com is a free service that satisfies all the requirements. It is perfect to use this service as a proof of concept, but in practice one would rather run a full Bitcoin node to minimize reliance on third-party services.
 
 \subsection{Use-case Application}
 
