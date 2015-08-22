@@ -40,12 +40,13 @@
 \contentsline {subsubsection}{\numberline {4.2.3.1}Gamebook Database Design}{10}
 \contentsline {subsubsection}{\numberline {4.2.3.2}Gamebook Author Platform}{10}
 \contentsline {section}{\numberline {4.3}WeChat Wallet Design}{11}
-\contentsline {subsection}{\numberline {4.3.1}Bitcoin PHP Library}{11}
-\contentsline {chapter}{\chapternumberline {5}Tests}{12}
-\contentsline {section}{\numberline {5.1}Quantative}{12}
-\contentsline {section}{\numberline {5.2}Qualitive}{12}
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{13}
-\contentsline {section}{\numberline {6.1}The Conclusion}{13}
-\contentsline {chapter}{Appendices}{14}
-\contentsline {appendix}{\chapternumberline {A}No appendices yet}{15}
-\contentsline {chapter}{Bibliography}{16}
+\contentsline {subsection}{\numberline {4.3.1}Bitcoin Interface Design}{11}
+\contentsline {subsection}{\numberline {4.3.2}WeChat Wallet Features Design}{12}
+\contentsline {chapter}{\chapternumberline {5}Tests}{14}
+\contentsline {section}{\numberline {5.1}Quantative}{14}
+\contentsline {section}{\numberline {5.2}Qualitive}{14}
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{15}
+\contentsline {section}{\numberline {6.1}The Conclusion}{15}
+\contentsline {chapter}{Appendices}{16}
+\contentsline {appendix}{\chapternumberline {A}No appendices yet}{17}
+\contentsline {chapter}{Bibliography}{18}
