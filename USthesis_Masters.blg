@@ -22,44 +22,44 @@ Database file #1: backmatter/Thesis.bib
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
 
 Done.
-You've used 3 entries,
+You've used 4 entries,
             4039 wiz_defined-function locations,
-            836 strings with 7799 characters,
-and the built_in function-call counts, 1389 in all, are:
-= -- 103
-> -- 16
+            842 strings with 7880 characters,
+and the built_in function-call counts, 1750 in all, are:
+= -- 132
+> -- 20
 < -- 5
-+ -- 8
-- -- 3
-* -- 70
-:= -- 264
-add.period$ -- 6
-call.type$ -- 3
-change.case$ -- 3
++ -- 10
+- -- 4
+* -- 83
+:= -- 334
+add.period$ -- 8
+call.type$ -- 4
+change.case$ -- 4
 chr.to.int$ -- 12
-cite$ -- 3
-duplicate$ -- 103
-empty$ -- 119
-format.name$ -- 3
-if$ -- 279
+cite$ -- 4
+duplicate$ -- 133
+empty$ -- 155
+format.name$ -- 4
+if$ -- 355
 int.to.chr$ -- 0
-int.to.str$ -- 3
-missing$ -- 20
-newline$ -- 38
-num.names$ -- 3
-pop$ -- 60
+int.to.str$ -- 4
+missing$ -- 27
+newline$ -- 43
+num.names$ -- 4
+pop$ -- 82
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 97
+skip$ -- 125
 stack$ -- 0
-substring$ -- 31
-swap$ -- 62
+substring$ -- 32
+swap$ -- 78
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 3
+type$ -- 4
 warning$ -- 0
-while$ -- 7
-width$ -- 4
-write$ -- 52
+while$ -- 8
+width$ -- 5
+write$ -- 62

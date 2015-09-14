@@ -1,8 +1,118 @@
+%!TEX root = ../USthesis_Masters.tex
+
 \chapter{Tests}
 \label{chp:Tests}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Quantative}
+\section{Quantitative}
 
-\section{Qualitive}
+This project is an implementation of a platform on top of an existing social media platform WeChat. We do not have access to the back-end systems of WeChat. This makes it hard to do many of the quantitative tests required for the application itself. They will require qualitative tests. The REST API however, can be tested thoroughly using unit tests. 
+
+\subsection{REST API unit tests}
+
+There are tools and frameworks available for testing REST API's. Just like when making the REST API, we decided to rather write the unit tests ourselves without using a framework in order to get a better understanding of how unit tests work.
+
+Thus, we wrote the entire REST API unit tests in a PHP script that calls all our REST endpoints with inputs that we know what the outputs should be. Each test should also confirm that the correct HTTP status code, as shown in table \ref{tbl:http_status_codes},  is returned. In total, there are 39 different tests that excecute. 
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}	{ | c | c | p{5cm}|}
+		\hline
+		Status Code & Text & Description \\ \hline
+		200 & OK & Request succeeded \\ \hline
+		400 & Bad Request & Request not understood due to malformed syntax \\ \hline
+		401 & Unauthorized & The request requires user authentication \\ \hline
+		404 & Not Found & Request does not exist \\ \hline
+		
+	   % \label{fig:htaccess_file}
+		\end{tabular}
+		\caption{Table of selected HTTP status codes} 
+		\label{tbl:http_status_codes}
+	\end{center}
+\end{table}
+
+
+
+\subsubsection{Testing Authentication}
+In order to test the authentication of the developer with our REST API, we wrote a simple endpoint called /test that returns an HTTP status code ``200 OK'' if the authentication was successful and the corresponding status code if it is unsuccessful.
+
+
+
+The following are the tests that should not authenticate:
+
+\begin{itemize}
+	\item Duplicate Request
+	\item Missing api\_key
+	\item Invalid api\_key
+	\item Missing nonce
+	\item Missing timestamp
+	\item Missing signature
+	\item Invalid signature
+\end{itemize}
+
+Since all of these tests fail to authenticate, they should all return an HTTP status code ``401 Unauthorized''.
+
+All further tests assume that the authentication happens successfully.
+
+\subsubsection{Testing /payment}
+
+To test the /payment endpoint, we make a payment request with an amount and a description. For the result, we expect a valid Bitcoin address with the same amount and description that we provided. We uses a function in bitcoin-lib-php library to validate the Bitcoin address. 
+
+The following are tests that should fail:
+
+\begin{itemize}
+	\item Wrong Method (GET instead of POST)
+	\item amount\_sat smaller or equal to 0
+	\item amount\_sat not an integer
+	\item Missing description
+	\item Description too long
+\end{itemize}
+
+These tests should all return an HTTP status code ``400 Bad Request''.
+
+\subsubsection{Testing /payment/\{TRANSACTION\_ID\}}
+
+To test this method, we need to call it with a valid transaction ID that corresponds to the api\_key that created the transaction. If the ID does not correspond with the api\_key, the test should return an HTTP status code ``401 Unauthorized''.
+
+\subsubsection{Testing /payment/\{PUBLIC\_ADDRESS\}}
+
+Testing this method is very similiar to the /payment/\{TRANSACTION\_ID\}. The public address must correspond with the api\_key that created the transaction. 
+
+The following tests should fail:
+
+\begin{itemize}
+	\item Wrong Public Address (401 Unauthorized)
+	\item Invalid Public Address (400 Bad Request)
+\end{itemize}
+
+\subsubsection{Testing /balance}
+
+This method only has no arguments. Thus, if the authentication succeeds, it should return an HTTP status code ``200 OK'' and the balance.
+
+\subsubsection{Testing /payout}
+
+This method will always return an HTTP status code ``200 OK'' with the result in the JSON response. 
+
+The following tests should fail:
+
+\begin{itemize}
+	\item No Address Given
+	\item Invalid Address
+\end{itemize}
+
+\subsubsection{Testing Invalid API Method}
+
+All these tests should return an HTTP status code ``404 Not Found'':
+
+\begin{itemize}
+	\item No Method Given
+	\item Testing ``/''
+	\item Testing /asdfasdf
+	\item Testing /asdfasdf/asdfasdf
+	\item Testing /balance/asdfasdf
+	\item Testing /payment/asdfasdf
+\end{itemize}	
+
+	
+\section{Qualitative}

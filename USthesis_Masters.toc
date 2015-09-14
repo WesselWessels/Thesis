@@ -42,11 +42,25 @@
 \contentsline {section}{\numberline {4.3}WeChat Wallet Design}{11}
 \contentsline {subsection}{\numberline {4.3.1}Bitcoin Interface Design}{11}
 \contentsline {subsection}{\numberline {4.3.2}WeChat Wallet Features Design}{12}
-\contentsline {chapter}{\chapternumberline {5}Tests}{14}
-\contentsline {section}{\numberline {5.1}Quantative}{14}
-\contentsline {section}{\numberline {5.2}Qualitive}{14}
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{15}
-\contentsline {section}{\numberline {6.1}The Conclusion}{15}
-\contentsline {chapter}{Appendices}{16}
-\contentsline {appendix}{\chapternumberline {A}No appendices yet}{17}
-\contentsline {chapter}{Bibliography}{18}
+\contentsline {subsubsection}{\numberline {4.3.2.1}Address to QR-code}{12}
+\contentsline {subsubsection}{\numberline {4.3.2.2}QR-code to Address}{13}
+\contentsline {subsubsection}{\numberline {4.3.2.3}User Balance}{14}
+\contentsline {subsubsection}{\numberline {4.3.2.4}Make A Payment}{14}
+\contentsline {section}{\numberline {4.4}REST API Design}{15}
+\contentsline {subsection}{\numberline {4.4.1}REST Endpoints}{15}
+\contentsline {chapter}{\chapternumberline {5}Tests}{17}
+\contentsline {section}{\numberline {5.1}Quantitative}{17}
+\contentsline {subsection}{\numberline {5.1.1}REST API unit tests}{17}
+\contentsline {subsubsection}{\numberline {5.1.1.1}Testing Authentication}{18}
+\contentsline {subsubsection}{\numberline {5.1.1.2}Testing /payment}{18}
+\contentsline {subsubsection}{\numberline {5.1.1.3}Testing /payment/\{TRANSACTION\_ID\}}{19}
+\contentsline {subsubsection}{\numberline {5.1.1.4}Testing /payment/\{PUBLIC\_ADDRESS\}}{19}
+\contentsline {subsubsection}{\numberline {5.1.1.5}Testing /balance}{19}
+\contentsline {subsubsection}{\numberline {5.1.1.6}Testing /payout}{19}
+\contentsline {subsubsection}{\numberline {5.1.1.7}Testing Invalid API Method}{19}
+\contentsline {section}{\numberline {5.2}Qualitative}{20}
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{21}
+\contentsline {section}{\numberline {6.1}The Conclusion}{21}
+\contentsline {chapter}{Appendices}{22}
+\contentsline {appendix}{\chapternumberline {A}No appendix yet}{23}
+\contentsline {chapter}{Bibliography}{24}

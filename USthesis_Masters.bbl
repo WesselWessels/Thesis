@@ -28,6 +28,12 @@ S.~Nakamoto, ``{Bitcoin: A Peer-to-Peer Electronic Cash System},''
   \url{https://bitcoin.org/bitcoin.pdf}
 \BIBentrySTDinterwordspacing
 
+\bibitem{PayPal2015}
+\BIBentryALTinterwordspacing
+PayPal, ``{PayPal},'' 2015. [Online]. Available:
+  \url{https://www.paypal.com/za/webapps/mpp/about}
+\BIBentrySTDinterwordspacing
+
 \bibitem{Oracle.com}
 \BIBentryALTinterwordspacing
 Oracle.com, ``{What Are RESTful Web Services?}'' [Online]. Available:

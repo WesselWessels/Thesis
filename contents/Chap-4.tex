@@ -82,7 +82,14 @@ We decided to use a website as the author platform. We used commonly used web te
 
 Using AJAX, we connect the front-end with the back-end PHP scripts that connects to the MySQL database. We also decided to use an OAuth login mechanism to facilitate logins, rather than writing our own login system. A big motivation for doing this is the authors desire to get experience with OAuth. We decided to use Google's OAuth platform, because it widely used and well documented. By using OAuth, we are enabled to have unique, secure logins without having to design all the security measures to protect the user. It also makes it easier for the user, because they can log in with a single click.
 
-Since the Gamebook resembles a tree, we decided to display the tree using an organisational chart. We used Google's JavaScript Chart API to map the Gamebook. The Chart API is free, simple, powerful and well documented. To display the story as a tree makes it easier for the writer to navigate through the book and to get a bigger picture of the story.
+Since the Gamebook resembles a tree, we decided to display the tree using an organisational chart. We used Google's JavaScript Chart API to map the Gamebook. The Chart API is free, simple, powerful and well documented. To display the story as a tree makes it easier for the writer to navigate through the book and to get a bigger picture of the story. An example of such a chart can be seen if figure \ref{fig:gamebook_tree}. Using a chart makes it easier for the author to see where the story needs more work.
+
+\begin{figure}
+  \centering
+    \includegraphics[width=\textwidth]{figs/gamebook_tree.pdf}
+   \caption{Gamebook Tree Representation} 
+   \label{fig:gamebook_tree}
+\end{figure}
 
 
 \section{WeChat Wallet Design}
@@ -122,18 +129,89 @@ During the progress of this project, chain.com has release version 2 of their AP
 
 The main function of a Bitcoin wallet application is to send and receive Bitcoin. A Bitcoin address is a string of 26 to 35 alphanumeric characters. Reading an address to someone is not practical due to the long length. A very common method of representing a Bitcoin address is by using a graphical QR-code. Another user can then scan a QR-code and receive the address to make the payment to.
 
-Thus, our first design specification is to represent the user's alphanumeric address as a QR-code image. There are several ways we can do this. The first method is to generate the QR-image on our server and send the image to the user on WeChat. The problem with this method is that our server will be responsible for generating images, and this is computationally intensive. The second method is using a webpage that generates the QR-code client-side using JavaScript. The WeChat Official Account allows us to open a link directly in WeChat. Thus, we can send the user a link of a webpage that will generate the QR-code in WeChat's built-in browser. With this method, computation is spread to the users and not a central server. 
+\subsubsection{Address to QR-code}
+Our first design specification is to represent the user's alphanumeric address as a QR-code image. There are several ways we can do this. The first method is to generate the QR-image on our server and send the image to the user on WeChat. The problem with this method is that our server will be responsible for generating images, and this is computationally intensive. The second method is using a webpage that generates the QR-code client-side using JavaScript. The WeChat Official Account allows us to open a link directly in WeChat. Thus, we can send the user a link of a webpage that will generate the QR-code in WeChat's built-in browser. With this method, computation is spread to the users and not a central server. 
 
-We chose the webpage method of generating the QR-codes. We wrote our own webpage that uses an Open Source JavaScript library to generate the QR-code. We encode the address to be generated in a GET request and send the link to the user. The link will look like this: \\https://domain.com/qr?address=1Bd5wrFxHYRkk4UCFttcPNMYzqJnQKfXUE\\This QR-code can then be generated when a user wants to receive a payment from someone.
+We chose the webpage method of generating the QR-codes. We wrote our own webpage that uses an Open Source JavaScript library to generate the QR-code. We encode the address to be generated in a GET request and send the link to the user. The link will look like this: \\https://domain.com/qr?address=1Bd5wrFxHYRkk4UCFttcPNMYzqJnQKfXUE\\This QR-code can then be generated when a user wants to receive a payment from someone. An example of a generated QR-code can be seen in figure \ref{fig:qr_code}.
 
+\begin{figure}
+  \centering
+    \includegraphics[width=0.5\textwidth]{figs/qr_code.jpg}
+   \caption{Generated QR-code} 
+   \label{fig:qr_code}
+\end{figure}
 
+\subsubsection{QR-code to Address}
 Our second design spesifiction is to allow a user to scan a QR-code to make a payment to. Although the WeChat application has a QR-code reader built-in, it doesn't allow the user to scan a QR-code directly from an Official Account. An Official Account does allow a user to send an image to our server. This will allow us to decode the QR-code on our server. For simplicity, we decided to use a third-party service called goQR.me to decode the QR-code. WeChat sends our server a link of the image that the user sent. This link of the image is used by the third-party service and responds with the decoded text. The bitcoin-lib-php software can verify that the decoded text is a valid Bitcoin address.
 
-This method of decoding the QR-code is very computationally- and bandwidth efficient for our server, since the image itself is not sent through our server. Just like the Bitcoin Interface in section \ref{sct:bitcoin_interface_design}, we chose to use a third-party service for our proof of concept. If we were to build the service for production scale, we would rather exchange the third-party service for our own software. In the case of the QR-code service, it would be a major security concern to use a third-party service. A malicious third-party can exchange the correct address for their own address to receive Bitcoin that is not intended for them.
+This method of decoding the QR-code is very computationally- and bandwidth efficient for our server, since the image itself is not sent through our server. Just like the Bitcoin Interface in section \ref{sct:bitcoin_interface_design}, we chose to use a third-party service for our proof of concept. If we were to build the service for production scale, we would rather exchange the third-party service for our own software. In the case of the QR-code service, it would be a major security concern to use a third-party service. A malicious third-party can exchange the correct address with their own address to receive Bitcoin that is not intended for them.
 
 
 
+\subsubsection{User Balance}
+
+Getting the balance of the user's address is the second core feature that a Bitcoin wallet application requires. Calculating an address' balance involves summing all the user's unspent outputs. Fortunately, the Chain.com API allows us to retrieve the balance of any Bitcoin address directly using a single method call. The result of getting the balance can be seen in figure \ref{fig:wechat_balance}.
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.3\textwidth]{figs/wechat_balance.jpg}
+   \caption{WeChat Balance} 
+   \label{fig:wechat_balance}
+\end{figure}
+
+\subsubsection{Make A Payment}
+
+The core process of making a payment is handled in section \ref{sct:bitcoin_interface_design} and can be seen in figure \ref{fig:bitcoin_payment_flow}. The most important part of the payment flow is that the user's Bitcoin private key never leaves our server, even though a third-party service is used to publish the transaction. 
 
 
+\section{REST API Design}
 
+There are many ways to implement a REST API. This is because of the ``black-box'' approach of REST. As such, the first major design decision that needs to be made is whether to use a REST framework or two build it from scratch. Using a REST framework would be easier and standardized and if the framework is maintained it would also be secure.
 
+In spite of the advantages of using a REST framework, we decided to build it ourself. The motivation for choosing this method is that the author wanted to get a better understanding of how a REST API works on the low-level and felt that building it from scratch would give a better understanding. Thus, we will use the same tools to build the other parts of our system, ie. PHP and MySQL.
+
+\subsection{REST Endpoints}
+
+A PHP script is usually called in the following format: ``url/script.php''. However, for a REST API we need a clean URL in the format: ``url/script''. Since we are using an Apache server, we need to modify the ``.htaccess'' file with regular expressions.
+
+Thus, we have different regular expressions in the .htaccess file that will call a single script with the corresponding parameters from the request. The .htaccess file will only relay the parameters of the url to the PHP script. The PHP script will then apply logic to determine what function should be executed. 
+
+The PHP script will firstly authenticate the developer, followed by the do the corresponding external API calls, database entries, response HTTP status code and JSON response data.
+
+\begin{figure}
+  \centering
+    \includegraphics[width=0.8\textwidth]{figs/htaccess_file.pdf}
+   \caption{REST URL Flow} 
+   \label{fig:htaccess_file}
+\end{figure}
+
+The following is an excerpt from the .htaccess file that is responsible for the routing of the REST endpoints:
+\begin{tiny}
+\begin{verbatim}
+RewriteRule ^api/v1/([A-Za-z0-9-]+)/([A-Za-z0-9-]+)/?$ 
+/chaintest/my_api.php?first_query=$1&second_query=$2 [NC,QSA,L]
+
+RewriteRule ^api/v1/([A-Za-z0-9-]+)/?$ /chaintest/my_api.php?first_query=$1 [NC,QSA,L]
+
+RewriteRule ^api/v1/?$ /chaintest/my_api.php
+\end{verbatim}
+\end{tiny}
+
+The first RewriteRule matches queries with two parameters in the URI and turns the parameters into GET variables first\_query and second\_query. The my\_api.php script will then be able to access these variables like normal GET variables. 
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}	{ | c | p{7cm} |}
+		\hline
+		Flag & Description \\ \hline
+		NC & No Case. Doesn't differentiate between upper- and lower case. \\ \hline
+		QSA & Query String Append. Adds the variables to the existing GET variables. \\ \hline
+		L & Last. If the rule matches, no further rules will be processed. \\ \hline
+		
+		
+	   % \label{fig:htaccess_file}
+		\end{tabular}
+		\caption{Table of selected .htaccess flags} 
+		\label{tbl:htaccess_flags}
+	\end{center}
+\end{table}
