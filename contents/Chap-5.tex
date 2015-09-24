@@ -116,3 +116,67 @@ All these tests should return an HTTP status code ``404 Not Found'':
 
 	
 \section{Qualitative}
+
+Since we are implementing a system that is used by people, a large part of our testing is qualitative.
+
+We wrote a guide that goes step-by-step through the processes of using the systems that we have built.
+
+The user is asked to add the Wallet Application inside WeChat and then load some Testnet Bitcoin to their wallet from a website that gives free Testnet away. This is to let them understand the concept of loading Bitcoin to their Wallet. They are then asked to write a small Gamebook on the Gamebook Author page. They only need to write three pages: one start page that links to two pages.
+
+After they finished the Gamebook, they are asked to add the Gamebooks Application inside WeChat. They should then navigate in the Gamebooks Application to the small story they just wrote and buy it. When they select it, they will receive a payment ID that they must enter in the Wallet Application and confirm the payment. They should then be able to read the story they just wrote and bought.
+
+To get feedback, we wrote a Google Form to make a questionnaire. The advantage of using a Google Form is that it directly outputs the answers of the users in a single spreadsheet.
+
+The main things we wanted to learn from the feedback was how easy the users where able to use the payment mechanism and how viable it is compared to traditional payment mechanisms.
+
+\subsection{Feedback}
+
+90\% of users used an iPhone when testing. The reason for this being so high is that a phone was offered for them to use in case they didn't have WeChat installed on their own phone. 10\% of users had an Android device, and the test was successful.
+
+60\% of users never used WeChat before this test, and the other 40\% have used it before, but they no longer use it.
+
+20\% of users are familiar with Bitcoin, with 70\% saying they have heard about it and 10\% saying they have never heard about it. 
+
+90\% of users where able to add the Wallet and Gamebooks Applications within WeChat on the first try, with 10\% being able to add it with some trouble.
+
+60\% of users said that the Wallet Application is easier to use than traditional payment mechanisms, with 20\% saying they are the same an 10\% said that traditional payment mechanisms are easier.
+
+50\% of users said that the Wallet Application is faster than traditional payment mechanisms, with 30\% of users saying they are the same and 20\% saying that traditional mechanisms are faster.
+
+We asked users what payment mechanism they would prefer to use assuming that Bitcoin is more easily accessible. 50\% of users said they would prefer Paypal, with 40\% of users saying they prefer the Wallet Application and 10\% saying they prefer a debit card.
+
+The users were asked to rate the Wallet Application overall out of 10. The average rating is 7.8, with the mode being 7 and a standard deviation of 1.48.
+
+For the Gamebooks Application, we only look at a rough experience. All of the users were able to write a Gamebook on the author website, with the majority saying it was easy to write. All of the users were able to select the book they wrote on the app, purchase it and read it.
+
+The users were also asked to rate the Gamebooks Application overall out of 10. The average rating is 8, with the mode also 8 and a standard deviation of 1.33.
+
+For the Gamebooks Author page, the average rating is 8.4, with the mode being 9 and the standard deviation being 0.97.
+
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}	{ | c| c | c | c|}
+		\hline
+		 &Average & Mode & Std. Dev. \\ \hline
+		 Wallet & 7.8 & 7 & 1.48 \\ \hline
+		 Gamebooks App& 8 & 8 & 1.33\\ \hline
+		 Author Page & 8.4 & 9 & 0.97\\ \hline
+
+		
+		
+	   % \label{fig:htaccess_file}
+		\end{tabular}
+		\caption{Table of ratings of individual parts of the system} 
+		\label{tbl:ratings}
+	\end{center}
+\end{table}
+
+
+\subsection{Feedback Interpretation}
+
+The response to the applications that was tested was generally positive. The majority of the users quickly grasped the concept of making a payment from the Wallet Application to a 3'rd party application. 
+
+
+
+

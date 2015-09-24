@@ -1,7 +1,49 @@
-\chapter{Background}
-\label{chp:Background}
+%!TEX root = ../USthesis_Masters.tex
+
+\chapter{Literature Study}
+\label{chp:literature_study}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{History}
+\section{Bitcoin}
+
+Bitcoin is a highly technical protocol that was introduced in 2008. For this project we will look at the relevant practical characteristics of the Bitcoin network as it is implemented in the real world.
+
+The code that is responsible for the Bitcoin network is open source and is maintained by a core team of developers. Since the code is open source, anyone can verify the code to ensure it is not malicious. The Bitcoin network also chooses what code to run, so consensus must be reached between the Bitcoin network and the software.
+
+Bitcoin is decentralised, which means no central authority controls the network. Rather, Bitcoin is run by independant nodes that work together.
+
+Bitcoin uses cryptography to remove trust from a central authority.
+
+\subsection{A Bitcoin Address}
+
+A Bitcoin address has two parts, a private key and a public key. The private key is an unsigned 256 bit integer that is usually randomly generated, but can also be chosen by the user. This private key should be kept secret, as anyone with the key can spend any Bitcoin that belongs to it.
+
+The public key is generated from the private key using a combination of Elliptic Curve Digital Signature Algorithms and several hashing functions. A private key can't be determined by knowing the public key, and thus it is safe for the public key to be known by anyone.
+
+An analogy of a postal box can be used to explain a Bitcoin address. The public key is like a post box. Anyone can deposit something into the box without having access to the key of the box. They only need to know the box number to make the deposit. To retrieve or spend whatever is in the box, we need the key. Thus, the private key is like the key to the post box. Only the person with the key can open the box. One important difference to a normal postal box is that the postal box is completely transparent, meaning anyone can see exactly what is in the box.
+
+\subsection{How Bitcoins Are Stored}
+\label{sbs:bitcoin_stored}
+
+Bitcoin is ``stored'' using a public ledger called the blockchain. Effectively, every single successful Bitcoin transaction is stored in this public ledger, and every user that runs a full Bitcoin node has an identical copy of the blockchain. The authenticity of the blockchain is managed by using consensus on the network and using hashing alogrithms. Bitcoin transactions are bundled into blocks, and the entire block is hashed. This block is hashed with the hash of the previous block as input, and so forth in the chain until the first block is reached. Thus, every block's hash is the hash of the entire chain behind it. This means that nothing can be changed in the chain, since it will change the entire hash after the change.
+
+Since the entire ledger of Bitcoin transactions are available, it is possible to calculate the balance of any address at any given time. Since there are so many copies of the blockchain, only the Bitcoin private key is required to be stored. Even though the public key is calculated from the private key, a server usually stores the public key as well since it will be inefficient to calculate it everytime we a lookup is needed. The fact that we only need to store these two values in order to have access to the Bitcoin is the most relevant part of how Bitcoin works for our purposes. It allows a developer to simply store these simple two values securely, without having to keep track of ledgers locally.
+
+\subsection{How a Bitcoin Transaction Works}
+
+Since the blockchain is a public ledger of all transactions, it is a crucial part of making a new transaction. Every transaction has inputs and outputs. When looking at an address at a specific point in time, we can determine which of the outputs of its transactions are not spent yet. They are called unspent outputs. These outputs can be cryptographically verified to belong to a specific address. These outputs can be used as inputs in a new transaction. The transaction then specifies new outputs to send Bitcoin to. To receive ``change'' in a Bitcoin transaction, the change amount must be specified to the address that the payer chose. The change address can be a new address owned buy the payer, or the same address that the payment came from.
+
+The difference between the inputs and outputs of a transaction is the transaction fee that is claimed by users that verify transactions. 
+
+\subsection{Bitcoin Mining}
+
+Bitcoin Mining is the process of bundling transactions together to form a block. As mentioned in \ref{sbs:bitcoin_stored}, every block has a hash that is in effect the hash of the entire chain. For a block to be valid, this hash has to satisfy the condition of leading with a certain amount of zeroes. This concept is arbitrary. Its only purpose is to be difficult to do, so that a lot of work is required to do so. The only way of doing this is using a brute force method. Thus, more computation power increases the odds of finding a block that satisfies the zeroes criteria.
+
+The amount of zeroes required is called the ``difficulty'', since more zeroes make it more difficult to find a valid block. The amount of zeroes required is dynamically updated by the Bitcoin network to ensure that the average time for finding such a block is 10 minutes.
+
+When a transaction is mined into a block, we say it has 1 confirmation. The longer the chain becomes after this block, the more confirmations it has and we can with higher trust say that the transaction is final. For example, a transaction with only one confirmation can still be rejected if a successful double-spend attack is done. With more confirmations, the probability of doing a double-spend attack lowers exponentially \cite{Nakamoto2008}. With very small payments, we do not require many confirmations to accept a payment. It is worth the risk of accepting a payment with 0 confirmations, since it is not worth the effort to try and do a double-spend on such a small transaction.
+
+
 

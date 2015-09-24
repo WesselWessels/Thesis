@@ -7,17 +7,18 @@
 \select@language {english}
 \addvspace {10pt}
 \addvspace {10pt}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Graph showing payout percentages for SMS payments}}{4}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Summary of Framework}}{4}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Summary of Framework}}{10}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Interaction with WeChat}}{8}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Gamebook Database Table}}{10}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Gamebook Tree Representation}}{11}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Bitcoin Payment Flow}}{13}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Generated QR-code}}{14}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces WeChat Balance}}{15}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces REST URL Flow}}{16}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Interaction with WeChat}}{14}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Gamebook Database Table}}{16}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Gamebook Tree Representation}}{17}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Bitcoin Payment Flow}}{19}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Generated QR-code}}{20}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces WeChat Balance}}{21}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces REST URL Flow}}{22}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

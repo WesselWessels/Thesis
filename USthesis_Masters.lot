@@ -7,11 +7,14 @@
 \select@language {english}
 \addvspace {10pt}
 \addvspace {10pt}
+\contentsline {table}{\numberline {1.1}{\ignorespaces Table of preferred online method of payment \cite {tsys}}}{2}
+\contentsline {table}{\numberline {1.2}{\ignorespaces Table of SMS payment payouts from bulksms.com \cite {bulksms.com}}}{3}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces Table of selected .htaccess flags}}{16}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Table of selected .htaccess flags}}{22}
 \addvspace {10pt}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Table of selected HTTP status codes}}{17}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Table of selected HTTP status codes}}{23}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Table of ratings of individual parts of the system}}{27}
 \addvspace {10pt}
 \addvspace {10pt}
