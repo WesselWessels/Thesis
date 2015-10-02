@@ -4,7 +4,7 @@
 
 Bitcoin \cite{Nakamoto2008} is a peer-to-peer decentralised digital payment mechanism that was introduced in a paper published by a person or group called Satoshi Nakamoto in 2008. Bitcoin aims to be an alternative to traditional centralised online payment mechanisms like credit cards and PayPal \cite{PayPal2015}. 
 
-We focus on testing the viability of Bitcoin as payment mechanism on social media platforms, specifically on a mobile platfom. 
+This thesis focuses on testing the viability of Bitcoin as payment mechanism on social media platforms, specifically on a mobile platfom. 
 
 To test the viability, we will design a Bitcoin payment framework that allows developers to incorporate Bitcoin payments in their applications without having to understand the low-level details of Bitcoin and without running any Bitcoin software.
 
@@ -14,7 +14,7 @@ We will also design and build a Bitcoin wallet application that will run on the 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Background}
 
-Making payments on a mobile social media platform has been done in several different ways in the past. One of the biggest challenges to overcome is that many users don't have a credit card. For many social media platforms, this is especially true since the target audience of the platform is teenagers. 
+Making payments on a mobile social media platform has been done in several different ways in the past. One of the biggest challenges to overcome is that many users do not have a credit card. For many social media platforms, this is especially true since the target audience of the platform is teenagers. 
 
 With Apple's in-app purchases \cite{apple}, credit card details have to be loaded in only once. A parent can thus load a credit card for a child and let the child use it, but this can lead to problems of unregulated spending.
 
@@ -24,7 +24,7 @@ The last payment method we look at is a voucher based system, like Apple's Gift 
 
 We would like to test the viability of Bitcoin as an alternative to these methods of payment, especially to take advantage of Bitcoin's low transaction fees.
 
-Bitcoin transactions can be processed without any transaction fee, but a small fee may be required for transactions that uses a lot of unspent outputs and thus causes a larger transaction. A large transaction in Bitcoin refers to the amount of bytes that the transaction uses and not the value of the Bitcoin. A small fee can also be added to speed up the processing time of the transaction. There are criticisms that say that the low price of transaction fees are unsustainable and will likely increase in the future \cite{Ka2014}.
+Bitcoin transactions can be processed without any transaction fee, but a small fee may be required for transactions that use a lot of unspent outputs and thus cause a larger transaction. A large transaction in Bitcoin refers to the amount of bytes that the transaction uses and not the value of the Bitcoin. A small fee can also be added to speed up the processing time of the transaction. There are criticisms that say that the low price of transaction fees are unsustainable and will likely increase in the future \cite{Ka2014}.
 
 
 
@@ -52,7 +52,7 @@ According to a study done in 2014 \cite{tsys}, 48\% of people prefer to make onl
 
 \subsubsection{Advantages}
 
-Credit card payments are easy to make and are processed quickly. The cost of transactions are very difficult to determine, as they differ from bank to bank, where you buy and the user's specific credit card package. However, credit card payments can be very cheap, since they usually have a small fixed and percentage fee per payment that is paid by the merchant. Since credit cards are backed by a trusted third-party, they are able to provide mediation when desputes arrive. They can also provide insurance against fraud. 
+Credit card payments are easy to make and are processed quickly. The costs of transactions are very difficult to determine, since they differ from bank to bank, where you buy and the user's specific credit card package. However, credit card payments can be very cheap, since they usually have a small fixed and percentage fee per payment that is paid by the merchant. Since credit cards are backed by a trusted third-party, they are able to provide mediation when desputes arrive. They can also provide insurance against fraud. 
 
 \subsubsection{Disadvantages}
 
@@ -102,16 +102,16 @@ From table \ref{tbl:sms_prices} and figure \ref{fig:sms_percentage} we can see t
 
 \subsubsection{Advantages of Airtime}
 
-The airtime model works very well, because it allows teenagers to use it with their existing airtime quotas without requiring their parents credit card details. Airtime is also very easily accessible, since it can be bought with cash at most supermarkets among other methods. 
+The airtime model works very well, because it allows teenagers to use it with their existing airtime quotas without requiring their parents' credit card details. Airtime is also very easily accessible, since it can be bought with cash at most supermarkets among other methods. 
 
-\subsubsection{Disdvantages of Airtime}
+\subsubsection{Disadvantages of Airtime}
 
 Airtime as payment only has one big disadvantage - the very high transaction fee paid by the merchant. 
 
 
 \subsection{Vouchers}
 
-Vouchers are very similar to airtime in regards to accessability. A physical voucher can usually be bought at a supermarket, where a code is sold to the user. This code is then entered by the user on the service provided by the company that provides the voucher, where the user will then receive the amount of the voucher as credit. For mobile purchases, Apple's Gift Cards are a very good example of vouchers in practice. The gift cards can be used in all the same Apple-related online stores that credit cards are used. This allows users to effectively buy online virtual goods using cash.
+Vouchers are very similar to airtime in regards to accessibility. A physical voucher can usually be bought at a supermarket, where a code is sold to the user. This code is then entered by the user on the service provided by the company that provides the voucher, where the user will then receive the amount of the voucher as credit. For mobile purchases, Apple's Gift Cards are a very good example of vouchers in practice. The gift cards can be used in all the same Apple-related online stores that credit cards are used. This allows users to effectively buy online virtual goods using cash.
 
 \subsubsection{Advantages of Vouchers}
 

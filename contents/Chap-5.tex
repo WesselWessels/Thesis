@@ -57,7 +57,7 @@ All further tests assume that the authentication happens successfully.
 
 \subsubsection{Testing /payment}
 
-To test the /payment endpoint, we make a payment request with an amount and a description. For the result, we expect a valid Bitcoin address with the same amount and description that we provided. We uses a function in bitcoin-lib-php library to validate the Bitcoin address. 
+To test the /payment endpoint, we make a payment request with an amount and a description. For the result, we expect a valid Bitcoin address with the same amount and description that we provided. We use a function in bitcoin-lib-php library to validate the Bitcoin address. 
 
 The following are tests that should fail:
 
@@ -113,6 +113,50 @@ All these tests should return an HTTP status code ``404 Not Found'':
 	\item Testing /balance/asdfasdf
 	\item Testing /payment/asdfasdf
 \end{itemize}	
+
+\subsection{Timing Tests}
+
+To test the loading times, we sent messages to the Gamebooks and Wallet Application and measured how long it took to get a response. We conducted three loading tests:
+
+\begin{enumerate}
+	\item{Gamebooks Menu - minimal database queries}
+	\item{Browse Gamebooks - substantial database queries}
+	\item{Wallet Balance - substantial database and Bitcoin queries}
+\end{enumerate}
+
+In conjuction with testing our Official Accounts, we also tested a popular Official Account from the sport broadcast company SuperSport to have a baseline for comparison.
+
+\begin{table}
+	\begin{center}
+		\begin{tabular}	{ | c| c | c | c| c|}
+		\hline
+		 &Gamebooks Menu & Gamebooks Browse & Wallet Balance & SuperSport\\ \hline
+		 	& 8.8 & 6.8 & 12.4 & 5.9 \\ \hline
+			& 7 & 6.4 & 8.5 & 6.3 \\ \hline
+			& 9.1 & 6.1 & 14.3 & 3.9 \\ \hline
+			& 6.1 & 6.6 & 7.1 & 5.8 \\ \hline
+			& 10.7 & 8.5 & 10.5 & 4.9 \\ \hline
+			& 4.7 & 8.3 & 7.6 & 6.1 \\ \hline
+			& 4.2 & 7.8 & 8 & 8.4 \\ \hline
+			& 6.4 & 7 & 7.3 & 5.2 \\ \hline
+			& 11.3 & 6.3 & 8.3 & 8.4 \\ \hline
+			& 6.6 & 6.1 & 8.1 & 7.9 \\ \hline 
+			\textbf{Average} & \textbf{7.49} & \textbf{6.99} &  \textbf{9.21} & \textbf{6.29}\\ \hline
+			\textbf{Std. Dev.} & \textbf{2.40} & \textbf{0.90} & \textbf{2.41} & \textbf{1.52} \\ \hline
+		
+		
+	   % \label{fig:htaccess_file}
+		\end{tabular}
+		\caption{Table of loading times in seconds} 
+		\label{tbl:loading_times}
+	\end{center}
+\end{table}
+
+As can be seen from table \ref{tbl:loading_times}, the loading times for our Official Accounts are very high. Getting the wallet balance took the longest of all the requests that we tested. The reason for the long time is all the steps that have to be completed for this request. First, the request is sent from the WeChat Application on the mobile phone. That request has to go to WeChat's server in China. If we ping wechat.com, we get an average round-trip time of 492ms. WeChat then has to validate the request and send it to our server in Singapore. 
+
+Our server then has to validate the request from WeChat and do database operations to get the address of the user. Since we are using the third-part service Chain.com for Bitcoin queries, we have to make a GET request to their services. This request has to check the Bitcoin Blockchain to determine the balance of the spesified address. Checking the balance and the round trip of the request seems to drastically increase the time of the interaction, since the request that involved Bitcoin took roughly two seconds longer to complete. We used a webpage that we wrote to test the Chain.com API to test how long a ``balance'' call of an address takes, and found that it took an average of 2.5 seconds.
+
+Fortunately, the timing tests of our baseline WeChat Official Account, SuperSport, produced very similar results to our tests. SuperSport performed 10\% faster than our average fastest test and 32\% faster than our average slowest test. Although the SuperSport Official Account performed faster than ours, it still performed very slow compared to a dedicated webpage loading time. The average loading time that we measured on webpage running on the same server as the backend of the Wallet and Gamebooks Apps was 2.7 seconds. This loading time is drastically shorter than the loading time of the requests in WeChat, and as such we can conclude that WeChat's Official Accounts are not the most ideal platform for speed. A web-app will outperform WeChat based on the tests that we have done. 
 
 	
 \section{Qualitative}
@@ -175,7 +219,9 @@ For the Gamebooks Author page, the average rating is 8.4, with the mode being 9 
 
 \subsection{Feedback Interpretation}
 
-The response to the applications that was tested was generally positive. The majority of the users quickly grasped the concept of making a payment from the Wallet Application to a 3'rd party application. 
+The response to the applications that was tested was generally positive. The majority of the users quickly grasped the concept of making a payment from the Wallet Application to a 3'rd party application. Most of the users were very optimistic about the concept of using Bitcoin as payment on the on a social platform. The majority also like the Gamebooks application in conjunction with the Author page. 
+
+The most negative feedback came from the response that only 40\% of users said that they would prefer to use the Wallet Application over traditional payment mechanisms, even though 60\% said it is easier and 50\% said it is faster. From user's responses, it seems that many of the users do not trust Bitcoin as a payment mechanism. Many users also disliked the user interface of the WeChat platform and also complained that responses are very slow.
 
 
 

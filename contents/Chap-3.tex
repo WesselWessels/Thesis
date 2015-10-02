@@ -37,16 +37,16 @@ Our requirements from the REST API are:
 	\item New Bitcoin address for each payment
 	\item Verify payment
 	\item Check total balance of developer
-	\item Witdraw available Bitcoin of developer
+	\item Withdraw available Bitcoin of developer
 \end{itemize}
 
 \subsubsection{The concept of the Bitcoin payment}
 
-This is a high-level explanation of how to receive verifyable payments with Bitcoin. With Bitcoin, unlike a traditional bank account, you don't have a single ``account'' where people can make payments to and you can verify that the payment came from them. With Bitcoin it is trivially easy to make a new Bitcoin address, and it can be generated without being connected to the Internet or the Bitcoin network.
+This is a high-level explanation of how to receive verifyable payments with Bitcoin. With Bitcoin, unlike a traditional bank account, the user does not have a single ``account'' where people can make payments to and one can verify that the payment came from them. With Bitcoin it is trivially easy to make a new Bitcoin address, and it can be generated without being connected to the Internet or the Bitcoin network.
 
 Since the entire Bitcoin blockchain is public, a single address is not sufficient to receive multiple payments. With a single address, it is not easy to verify that a spesific person has made a payment, since there may be several payments of the same amount happening in short succession.
 
-The sollution to the problem is generating a new address for every payment, and requesting that the user make the payment to that address. Since the newly generated address is not yet present on the blockchain, when a payment to that address of the requested amount occurs, we can be certain that the person in question made the payment. When the payment is complete, the Bitcoin in that address can be transferred to a central address, and the original address can be discarded.
+The solution to the problem is generating a new address for every payment, and requesting that the user make the payment to that address. Since the newly generated address is not yet present on the blockchain, when a payment to that address of the requested amount occurs, it can be certain that the person in question made the payment. When the payment is complete, the Bitcoin in that address can be transferred to a central address, and the original address can be discarded.
 
 From our requirements for the REST API, we clearly require (at least) the following methods:
 
@@ -65,7 +65,7 @@ The user can then pay to the Bitcoin address using any standard Bitcoin payment 
 
 \subsubsection{/payment/\{PUBLIC\_ADDRESS\} and /payment/\{ID\}}
 
-These two methods are conceptually the same, but they take in two different arguments. The one takes the Bitcoin address to be queried, and the other takes the payment ID. The method returns all the data about the transaction, including the status of the transaction. 
+These two methods are conceptually the same, but they take in two different arguments. The first one takes the Bitcoin address to be queried, and the second one takes the payment ID. They both return all the data about the transaction, including the status of the transaction. 
 
 The main purpose of this method is to verify that a transaction has been completed by the user. It can also be used to give the payment details to to user again.
 
@@ -83,7 +83,7 @@ The Wallet Application is a Bitcoin wallet implemented on the WeChat platform. T
 
 In this manner, a fully functional Bitcoin wallet is realised. The third party server stores the private keys and processes the Bitcoin transactions on commands from the user.
 
-The advantage of using the WeChat platform is the security built in to the platform, as well as an existing userbase. 
+The advantage of using the WeChat platform is the security built in to the platform, as well as an existing user base. 
 
 The Wallet Application will be directly connected to the back-end of the REST API. Thus, payment requests will be referable directly from the Wallet Application without needing to reference the Bitcoin Address. It will be able to reference the request using the payment ID mentioned in \ref{sct:payment}
 
@@ -108,4 +108,4 @@ The details of the chosen service is covered in chapter \ref{chp:Detail Design}.
 
 To use the payment framework, a Gamebook application is created to read Choose Your Own Adventure style books on the WeChat platform. User-created books can be sold by using the Bitcoin payment framework and the author can potentially earn Bitcoin.
 
-For each sale, the Gamebook application creates a payment request using the REST API. The user can then pay using the Wallet Application or any Bitcoin payment mechanism. The Gamebook application can the query the API to confirm that the payment is received. 
+For each sale, the Gamebook application creates a payment request using the REST API. The user can then pay using the Wallet Application or any Bitcoin payment mechanism. The Gamebook application can then query the API to confirm that the payment is received. 

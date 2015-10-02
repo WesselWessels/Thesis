@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.24)  25 SEP 2015 01:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2015.2.24)  1 OCT 2015 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -875,25 +875,29 @@ File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 
 
 
-] [24] [25] [26]) [27]
+] [24] [25]
+Overfull \hbox (50.37915pt too wide) in paragraph at lines 131--150
+ [] 
+ []
+
+[26] [27] [28]) [29]
 \openout2 = `contents/Chap-6.aux'.
 
-
-(./contents/Chap-6.tex) [28
-
+ (./contents/Chap-6.tex) [30
 
 
-] [29
+
+] [31
 
 
 ]
 \openout2 = `contents/App-1.aux'.
 
- (./contents/App-1.tex) [30
+ (./contents/App-1.tex)
+[32
 
 
-]
-(./USthesis_Masters.bbl
+] (./USthesis_Masters.bbl
 bibitemlist
 
 Underfull \hbox (badness 7595) in paragraph at lines 45--48
@@ -915,7 +919,7 @@ Underfull \hbox (badness 4940) in paragraph at lines 71--74
 []\T1/cmr/m/n/12 Mxit, ``What is Moola.'' [On-line]. Avail-able:
  []
 
-) [31
+) [33
 
 
 
@@ -934,10 +938,10 @@ Underfull \hbox (badness 4940) in paragraph at lines 71--74
 (./contents/Chap-3.aux) (./contents/Chap-4.aux) (./contents/Chap-5.aux)
 (./contents/Chap-6.aux) (./contents/App-1.aux)) ) 
 Here is how much of TeX's memory you used:
- 7634 strings out of 493117
- 105718 string characters out of 6135433
- 211324 words of memory out of 5000000
- 10879 multiletter control sequences out of 15000+600000
+ 7635 strings out of 493117
+ 105737 string characters out of 6135433
+ 211373 words of memory out of 5000000
+ 10880 multiletter control sequences out of 15000+600000
  27633 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  42i,16n,46p,958b,421s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -962,10 +966,10 @@ uper/sfsl1440.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-sup
 er/sfti1095.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super
 /sfti1200.pfb></usr/local/texlive/2014/texmf-dist/fonts/type1/public/cm-super/s
 ftt0800.pfb>
-Output written on USthesis_Masters.pdf (42 pages, 1068459 bytes).
+Output written on USthesis_Masters.pdf (44 pages, 1073754 bytes).
 PDF statistics:
- 256 PDF objects out of 1000 (max. 8388607)
- 178 compressed objects within 2 object streams
+ 263 PDF objects out of 1000 (max. 8388607)
+ 183 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  51 words of extra memory for PDF output out of 10000 (max. 10000000)
 
