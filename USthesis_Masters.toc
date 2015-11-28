@@ -16,67 +16,64 @@
 \contentsline {section}{\numberline {1.1}Background}{1}
 \contentsline {section}{\numberline {1.2}Related Work}{2}
 \contentsline {subsection}{\numberline {1.2.1}Credit and Debit Cards}{2}
-\contentsline {subsubsection}{\numberline {1.2.1.1}Advantages}{2}
-\contentsline {subsubsection}{\numberline {1.2.1.2}Disadvantages}{2}
 \contentsline {subsection}{\numberline {1.2.2}Airtime Payment}{3}
-\contentsline {subsubsection}{\numberline {1.2.2.1}Advantages of Airtime}{4}
-\contentsline {subsubsection}{\numberline {1.2.2.2}Disadvantages of Airtime}{4}
 \contentsline {subsection}{\numberline {1.2.3}Vouchers}{4}
-\contentsline {subsubsection}{\numberline {1.2.3.1}Advantages of Vouchers}{5}
-\contentsline {subsubsection}{\numberline {1.2.3.2}Disadvantages of Vouchers}{5}
 \contentsline {section}{\numberline {1.3}Objectives}{5}
 \contentsline {chapter}{\chapternumberline {2}Literature Study}{6}
 \contentsline {section}{\numberline {2.1}Bitcoin}{6}
 \contentsline {subsection}{\numberline {2.1.1}A Bitcoin Address}{6}
-\contentsline {subsection}{\numberline {2.1.2}How Bitcoins Are Stored}{7}
-\contentsline {subsection}{\numberline {2.1.3}How a Bitcoin Transaction Works}{7}
-\contentsline {subsection}{\numberline {2.1.4}Bitcoin Mining}{8}
-\contentsline {chapter}{\chapternumberline {3}System Design}{9}
-\contentsline {section}{\numberline {3.1}Framework}{9}
-\contentsline {subsection}{\numberline {3.1.1}REST API for payment management}{9}
-\contentsline {subsubsection}{\numberline {3.1.1.1}The concept of the Bitcoin payment}{10}
-\contentsline {subsubsection}{\numberline {3.1.1.2}The /payment method}{11}
-\contentsline {subsubsection}{\numberline {3.1.1.3}/payment/\{PUBLIC\_ADDRESS\} and /payment/\{ID\}}{11}
-\contentsline {subsubsection}{\numberline {3.1.1.4}/balance}{11}
-\contentsline {subsubsection}{\numberline {3.1.1.5}/payout}{11}
-\contentsline {subsection}{\numberline {3.1.2}Wallet Application}{11}
-\contentsline {subsection}{\numberline {3.1.3}Bitcoin Interface}{12}
-\contentsline {subsection}{\numberline {3.1.4}Use-case Application}{12}
-\contentsline {chapter}{\chapternumberline {4}Detail Design}{13}
-\contentsline {section}{\numberline {4.1}Back-end}{13}
-\contentsline {subsection}{\numberline {4.1.1}Back-end Server}{13}
-\contentsline {subsection}{\numberline {4.1.2}Back-end Web Framework}{13}
-\contentsline {section}{\numberline {4.2}Social Media Platform}{13}
-\contentsline {subsection}{\numberline {4.2.1}WeChat Security}{14}
-\contentsline {subsection}{\numberline {4.2.2}WeChat Interface}{15}
-\contentsline {subsection}{\numberline {4.2.3}Gamebook Design}{15}
-\contentsline {subsubsection}{\numberline {4.2.3.1}Gamebook Database Design}{16}
-\contentsline {subsubsection}{\numberline {4.2.3.2}Gamebook Author Platform}{16}
-\contentsline {section}{\numberline {4.3}WeChat Wallet Design}{17}
-\contentsline {subsection}{\numberline {4.3.1}Bitcoin Interface Design}{17}
-\contentsline {subsection}{\numberline {4.3.2}WeChat Wallet Features Design}{18}
-\contentsline {subsubsection}{\numberline {4.3.2.1}Address to QR-code}{18}
-\contentsline {subsubsection}{\numberline {4.3.2.2}QR-code to Address}{19}
-\contentsline {subsubsection}{\numberline {4.3.2.3}User Balance}{20}
-\contentsline {subsubsection}{\numberline {4.3.2.4}Make A Payment}{20}
-\contentsline {section}{\numberline {4.4}REST API Design}{21}
-\contentsline {subsection}{\numberline {4.4.1}REST Endpoints}{21}
-\contentsline {chapter}{\chapternumberline {5}Tests}{23}
-\contentsline {section}{\numberline {5.1}Quantitative}{23}
-\contentsline {subsection}{\numberline {5.1.1}REST API unit tests}{23}
-\contentsline {subsubsection}{\numberline {5.1.1.1}Testing Authentication}{24}
-\contentsline {subsubsection}{\numberline {5.1.1.2}Testing /payment}{24}
-\contentsline {subsubsection}{\numberline {5.1.1.3}Testing /payment/\{TRANSACTION\_ID\}}{25}
-\contentsline {subsubsection}{\numberline {5.1.1.4}Testing /payment/\{PUBLIC\_ADDRESS\}}{25}
-\contentsline {subsubsection}{\numberline {5.1.1.5}Testing /balance}{25}
-\contentsline {subsubsection}{\numberline {5.1.1.6}Testing /payout}{25}
-\contentsline {subsubsection}{\numberline {5.1.1.7}Testing Invalid API Method}{25}
-\contentsline {subsection}{\numberline {5.1.2}Timing Tests}{26}
-\contentsline {section}{\numberline {5.2}Qualitative}{27}
-\contentsline {subsection}{\numberline {5.2.1}Feedback}{28}
-\contentsline {subsection}{\numberline {5.2.2}Feedback Interpretation}{29}
-\contentsline {chapter}{\chapternumberline {6}Conclusion}{30}
-\contentsline {section}{\numberline {6.1}The Conclusion}{30}
-\contentsline {chapter}{Appendices}{31}
-\contentsline {appendix}{\chapternumberline {A}No appendix yet}{32}
-\contentsline {chapter}{Bibliography}{33}
+\contentsline {subsection}{\numberline {2.1.2}How Bitcoins Are Stored}{8}
+\contentsline {subsection}{\numberline {2.1.3}How a Bitcoin Transaction Works}{8}
+\contentsline {subsection}{\numberline {2.1.4}Bitcoin Mining}{9}
+\contentsline {section}{\numberline {2.2}REST}{10}
+\contentsline {section}{\numberline {2.3}Gamebooks}{11}
+\contentsline {chapter}{\chapternumberline {3}System Design}{13}
+\contentsline {section}{\numberline {3.1}Framework}{13}
+\contentsline {subsection}{\numberline {3.1.1}REST API for payment management}{13}
+\contentsline {subsubsection}{\numberline {3.1.1.1}The /payment endpoint}{14}
+\contentsline {subsubsection}{\numberline {3.1.1.2}/payment/\{PUBLIC\_ADDRESS\} and /payment/\{ID\}}{15}
+\contentsline {subsubsection}{\numberline {3.1.1.3}/balance}{15}
+\contentsline {subsubsection}{\numberline {3.1.1.4}/payout}{15}
+\contentsline {subsection}{\numberline {3.1.2}Wallet Application}{15}
+\contentsline {subsection}{\numberline {3.1.3}Bitcoin Interface}{15}
+\contentsline {subsection}{\numberline {3.1.4}Use-case Application}{16}
+\contentsline {chapter}{\chapternumberline {4}Detail Design}{17}
+\contentsline {section}{\numberline {4.1}Back-end}{17}
+\contentsline {subsection}{\numberline {4.1.1}Back-end Server}{17}
+\contentsline {subsection}{\numberline {4.1.2}Back-end Web Framework}{17}
+\contentsline {section}{\numberline {4.2}Social Media Platform}{17}
+\contentsline {subsection}{\numberline {4.2.1}WeChat Security}{18}
+\contentsline {subsection}{\numberline {4.2.2}WeChat Interface}{19}
+\contentsline {subsection}{\numberline {4.2.3}Gamebook Design}{19}
+\contentsline {subsubsection}{\numberline {4.2.3.1}Gamebook Database Design}{20}
+\contentsline {subsubsection}{\numberline {4.2.3.2}Gamebook Author Platform}{20}
+\contentsline {section}{\numberline {4.3}WeChat Wallet Design}{21}
+\contentsline {subsection}{\numberline {4.3.1}Bitcoin Interface Design}{21}
+\contentsline {subsection}{\numberline {4.3.2}WeChat Wallet Features Design}{22}
+\contentsline {subsubsection}{\numberline {4.3.2.1}Address to QR-code}{23}
+\contentsline {subsubsection}{\numberline {4.3.2.2}QR-code to Address}{23}
+\contentsline {subsubsection}{\numberline {4.3.2.3}User Balance}{24}
+\contentsline {subsubsection}{\numberline {4.3.2.4}Make A Payment}{25}
+\contentsline {section}{\numberline {4.4}REST API Design}{25}
+\contentsline {subsection}{\numberline {4.4.1}REST Endpoints}{25}
+\contentsline {chapter}{\chapternumberline {5}Tests}{28}
+\contentsline {section}{\numberline {5.1}Quantitative}{28}
+\contentsline {subsection}{\numberline {5.1.1}REST API unit tests}{28}
+\contentsline {subsubsection}{\numberline {5.1.1.1}Testing Authentication}{29}
+\contentsline {subsubsection}{\numberline {5.1.1.2}Testing /payment}{29}
+\contentsline {subsubsection}{\numberline {5.1.1.3}Testing /payment/\{TRANSACTION\_ID\}}{30}
+\contentsline {subsubsection}{\numberline {5.1.1.4}Testing /payment/\{PUBLIC\_ADDRESS\}}{30}
+\contentsline {subsubsection}{\numberline {5.1.1.5}Testing /balance}{30}
+\contentsline {subsubsection}{\numberline {5.1.1.6}Testing /payout}{30}
+\contentsline {subsubsection}{\numberline {5.1.1.7}Testing Invalid API Method}{30}
+\contentsline {subsection}{\numberline {5.1.2}Timing Tests}{31}
+\contentsline {subsection}{\numberline {5.1.3}Transaction Fees and Time Testing}{32}
+\contentsline {section}{\numberline {5.2}Qualitative}{33}
+\contentsline {subsection}{\numberline {5.2.1}User Feedback}{34}
+\contentsline {subsection}{\numberline {5.2.2}User Feedback Interpretation}{35}
+\contentsline {chapter}{\chapternumberline {6}Conclusion}{36}
+\contentsline {section}{\numberline {6.1}Contributions}{36}
+\contentsline {section}{\numberline {6.2}Future Work}{36}
+\contentsline {chapter}{Appendices}{37}
+\contentsline {appendix}{\chapternumberline {A}No appendix yet}{38}
+\contentsline {chapter}{Bibliography}{39}

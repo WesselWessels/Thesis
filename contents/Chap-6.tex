@@ -1,6 +1,25 @@
+%!TEX root = ../USthesis_Masters.tex
+
 \chapter{Conclusion}
 \label{chp:Conclusion}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The Conclusion}
+In the area of small mobile payments on a social media platform, Bitcoin was found to be a viable payment mechanism. Bitcoin was shown to be able to process a transaction with a fee of about R0.01 on a R1 transaction, where the same transaction with an SMS payment would cost at least R0.90. 
+
+With the payment framework that was implemented on WeChat, we were successfully able to manage Bitcoin payments as a service. The Bitcoin walllet application that was built to run on WeChat was able to function as a basic Bitcoin wallet application. It was also able to make payments directly to the use-case gamebooks application.
+
+Despite the constrained environment of the chat application, the user feedback for the overall experience of using Bitcoin as a payment mechanism was positive. Further constraints, like relying on third-party services that increase response time increased the negative feedback regarding the user experience. 
+
+\section{Contributions}
+
+
+
+
+\section{Future Work}
+
+The implementation of the payment framework in this project is intended to be a proof of concept. As such, there was not enough focus on security, especially in terms of the storage of Bitcoin private keys. If a framework like this is implemented on a production platform, extreme attention should be given to security and possible exploitations.
+
+Furthermore, a platform like the one built would be better if it relied less on multiple third-party platforms for services like Bitcoin blockchain access and QR-code decoding. For the sake of security and control, services like this would be better to be implemented by the organisation that builds the platform. Having control of a bigger part of the system reduces the points of failure.
+
+

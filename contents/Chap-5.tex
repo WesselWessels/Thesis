@@ -17,9 +17,10 @@ Thus, we wrote the entire REST API unit tests in a PHP script that calls all our
 
 \begin{table}
 	\begin{center}
+		\caption{Table of selected HTTP status codes.} 
 		\begin{tabular}	{ | c | c | p{5cm}|}
 		\hline
-		Status Code & Text & Description \\ \hline
+		\textbf{Status Code} & \textbf{Text} & \textbf{Description} \\ \hline
 		200 & OK & Request succeeded \\ \hline
 		400 & Bad Request & Request not understood due to malformed syntax \\ \hline
 		401 & Unauthorized & The request requires user authentication \\ \hline
@@ -27,7 +28,7 @@ Thus, we wrote the entire REST API unit tests in a PHP script that calls all our
 		
 	   % \label{fig:htaccess_file}
 		\end{tabular}
-		\caption{Table of selected HTTP status codes} 
+		
 		\label{tbl:http_status_codes}
 	\end{center}
 \end{table}
@@ -128,9 +129,10 @@ In conjuction with testing our Official Accounts, we also tested a popular Offic
 
 \begin{table}
 	\begin{center}
+		\caption{Table of response times in seconds of our WeChat Official Accounts in comparison with an existing Official Account.} 
 		\begin{tabular}	{ | c| c | c | c| c|}
 		\hline
-		 &Gamebooks Menu & Gamebooks Browse & Wallet Balance & SuperSport\\ \hline
+		 &\textbf{Menu} & \textbf{Browse} & \textbf{Balance} & \textbf{SuperSport}\\ \hline
 		 	& 8.8 & 6.8 & 12.4 & 5.9 \\ \hline
 			& 7 & 6.4 & 8.5 & 6.3 \\ \hline
 			& 9.1 & 6.1 & 14.3 & 3.9 \\ \hline
@@ -147,17 +149,57 @@ In conjuction with testing our Official Accounts, we also tested a popular Offic
 		
 	   % \label{fig:htaccess_file}
 		\end{tabular}
-		\caption{Table of loading times in seconds} 
+		
 		\label{tbl:loading_times}
 	\end{center}
 \end{table}
 
 As can be seen from table \ref{tbl:loading_times}, the loading times for our Official Accounts are very high. Getting the wallet balance took the longest of all the requests that we tested. The reason for the long time is all the steps that have to be completed for this request. First, the request is sent from the WeChat Application on the mobile phone. That request has to go to WeChat's server in China. If we ping wechat.com, we get an average round-trip time of 492ms. WeChat then has to validate the request and send it to our server in Singapore. 
 
-Our server then has to validate the request from WeChat and do database operations to get the address of the user. Since we are using the third-part service Chain.com for Bitcoin queries, we have to make a GET request to their services. This request has to check the Bitcoin Blockchain to determine the balance of the spesified address. Checking the balance and the round trip of the request seems to drastically increase the time of the interaction, since the request that involved Bitcoin took roughly two seconds longer to complete. We used a webpage that we wrote to test the Chain.com API to test how long a ``balance'' call of an address takes, and found that it took an average of 2.5 seconds.
+Our server then has to validate the request from WeChat and do database operations to get the address of the user. Since we are using the third-party service Chain.com for Bitcoin queries, we have to make a GET request to their services. This request has to check the Bitcoin Blockchain to determine the balance of the specified address. Checking the balance and the round trip of the request seems to drastically increase the time of the interaction, since the request that involved Bitcoin took roughly two seconds longer to complete. We used a webpage that we wrote to test the Chain.com API to test how long a ``balance'' call of an address takes, and found that it took an average of 2.5 seconds.
 
 Fortunately, the timing tests of our baseline WeChat Official Account, SuperSport, produced very similar results to our tests. SuperSport performed 10\% faster than our average fastest test and 32\% faster than our average slowest test. Although the SuperSport Official Account performed faster than ours, it still performed very slow compared to a dedicated webpage loading time. The average loading time that we measured on webpage running on the same server as the backend of the Wallet and Gamebooks Apps was 2.7 seconds. This loading time is drastically shorter than the loading time of the requests in WeChat, and as such we can conclude that WeChat's Official Accounts are not the most ideal platform for speed. A web-app will outperform WeChat based on the tests that we have done. 
 
+
+\subsection{Transaction Fees and Time Testing}
+
+To test the viability of Bitcoin with regards to transaction fees and the time the transaction takes to be confirmed, we will measure how long transactions take to complete. We will start with the default transaction fee (0.0001 BTC) and halve the fee every transaction. The time a transaction takes to complete is nondeterministic and is dependant on many factors discussed in chapter ({{insert reference here}}). 
+
+An initial test was done by measuring the time taken since a transaction was posted on the Bitcoin network to when it was included in a block (one confirmation). This turned out to be a badly constructed test, since it measured the time it takes in minutes rather than the number of blocks that was mined since the transaction was posted. This is an important distinction, because the time a block takes to mine is not dependant on the details of the transactions that are being mined.
+
+We record the current block height at the time the transaction is posted and then compare it to the block height of the block that the transaction is included in. In the ideal situation, a transaction will be included in the next block that is mined and will have a block difference of one.
+
+\begin{table}
+	\small
+	\begin{center}
+
+	\caption{Table showing the results of a test to show the relationship between the transaction fee and the time it takes to complete the transaction.} 
+		\begin{tabular}	{ | c| c | c | c | c|}
+		\hline
+		\textbf{Amount (BTC)} & \textbf{Fee (BTC)} & \textbf{Fee (ZAR)} & \textbf{Block Difference} & \textbf{Time}\\ \hline
+		 0.00027137 & 0.0001 & 0.3685 & 1 & 0:20:13 \\ \hline
+		 0.00027137 & 0.00005 & 0.18425 & 1 & 0:01:55 \\ \hline
+		 0.00027137 & 0.000025 & 0.092125 & 1 & 0:00:55 \\ \hline
+		 0.00027137 & 0.0000125 & 0.0460625 & 8 & 1:48:14 \\ \hline
+		 0.00027137 & 0.00000625 & 0.02303125 & 85 & 15:06:00 \\ \hline
+		 0.00027137 & 0.00000313 & 0.01153405 & 16 & 2:00:56 \\ \hline
+		 0.00027137 & 0.0000028 & 0.010318 & 6 & 0:39:57 \\ \hline
+	   % \label{fig:htaccess_file}
+		\end{tabular}
+		
+		\label{tbl:transaction_times}
+	\end{center}
+\end{table}
+
+For all of the Bitcoin fees tests we use the value of R3685 for 1 Bitcoin taken from a South African Bitcoin exchange, BitX, on 19 October 2015. Every payment we make is roughly R1 worth in Bitcoin. The defualt fee of 0.0001 Bitcoin is roughly 37 cents. With a R1 transaction, the fee default fee is 37\% of the value. This fee is also added on top of the payment, and is not covered by the merchant like with airtime or credit cards. Therefore, if a user makes a R1 payment with Bitcoin to a merchant, the user will effectively pay R1,37. For this reason we want to test by how much we can feasibly reduce the fee that the user pays.
+
+Since making the transaction fee smaller will reduce the average time transactions take to be confirmed, we have to define an acceptable transaction time. For practical purposes, we define this time as 24 hours. Therefore we want a transaction to be confirmed within 24 hours, but due to the small transaction we can provide the virtual goods or services as soon as a valid transaction is posted to the Bitcoin network.
+
+In table \ref{tbl:transaction_times} we can see that the longest transaction took 85 blocks and 15 hours to be confirmed. This is an interesting transaction, since the next two transactions were completed considerably faster, even though they had smaller fees. This highlights the difficulty of accurately predicting how long a transaction will take to be confirmed. The number of factors determining the transaction time are too high, and the random element of mining increases it further.
+
+Therefore, this test does not provide a metric, but rather shows that it is possible to make Bitcoin payments with very small fees that are confirmed within reasonable time. 
+
+% To get a better idea of roughly the time low fee transactions will take, we will do a test of ten payments of R1 with a 0.000003 BTC (1 cent) fee.
 	
 \section{Qualitative}
 
@@ -173,7 +215,7 @@ To get feedback, we wrote a Google Form to make a questionnaire. The advantage o
 
 The main things we wanted to learn from the feedback was how easy the users where able to use the payment mechanism and how viable it is compared to traditional payment mechanisms.
 
-\subsection{Feedback}
+\subsection{User Feedback}
 
 90\% of users used an iPhone when testing. The reason for this being so high is that a phone was offered for them to use in case they didn't have WeChat installed on their own phone. 10\% of users had an Android device, and the test was successful.
 
@@ -200,26 +242,27 @@ For the Gamebooks Author page, the average rating is 8.4, with the mode being 9 
 
 \begin{table}
 	\begin{center}
+		\caption{Table of ratings of individual parts of the system.} 
 		\begin{tabular}	{ | c| c | c | c|}
 		\hline
-		 &Average & Mode & Std. Dev. \\ \hline
-		 Wallet & 7.8 & 7 & 1.48 \\ \hline
-		 Gamebooks App& 8 & 8 & 1.33\\ \hline
-		 Author Page & 8.4 & 9 & 0.97\\ \hline
+		 &\textbf{Average} & \textbf{Mode} & \textbf{Std. Dev.} \\ \hline
+		 \textbf{Wallet} & 7.8 & 7 & 1.48 \\ \hline
+		 \textbf{Gamebooks App} & 8 & 8 & 1.33\\ \hline
+		 \textbf{Author Page} & 8.4 & 9 & 0.97\\ \hline
 
 		
 		
 	   % \label{fig:htaccess_file}
 		\end{tabular}
-		\caption{Table of ratings of individual parts of the system} 
+		
 		\label{tbl:ratings}
 	\end{center}
 \end{table}
 
 
-\subsection{Feedback Interpretation}
+\subsection{User Feedback Interpretation}
 
-The response to the applications that was tested was generally positive. The majority of the users quickly grasped the concept of making a payment from the Wallet Application to a 3'rd party application. Most of the users were very optimistic about the concept of using Bitcoin as payment on the on a social platform. The majority also like the Gamebooks application in conjunction with the Author page. 
+The response to the applications that was tested was generally positive. The majority of the users quickly grasped the concept of making a payment from the Wallet Application to a third-party application. Most of the users were very optimistic about the concept of using Bitcoin as payment on the on a social platform. The majority also like the Gamebooks application in conjunction with the Author page. 
 
 The most negative feedback came from the response that only 40\% of users said that they would prefer to use the Wallet Application over traditional payment mechanisms, even though 60\% said it is easier and 50\% said it is faster. From user's responses, it seems that many of the users do not trust Bitcoin as a payment mechanism. Many users also disliked the user interface of the WeChat platform and also complained that responses are very slow.
 

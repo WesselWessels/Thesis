@@ -7,18 +7,23 @@
 \select@language {english}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Graph showing payout percentages for SMS payments}}{4}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Graph showing payout percentages that a merchant receives for SMS payments.}}{4}
 \addvspace {10pt}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Public Key To Address Conversion. Adapted from \cite {pubkeytoadd}.}}{7}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Simplified representation of Bitcoin blockchain. Adapted from \cite {Nakamoto2008}.}}{8}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Example of Bitcoin transactions demonstrating the relationship between inputs and outputs\cite {bitcoinOrg}.}}{9}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Client-server Model of REST architecture\cite {Fielding2000}.}}{10}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Example of one of the earliest Choose Your Own Adventure books \cite {cyoa}.}}{12}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Summary of Framework}}{10}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Interaction between the parts of the system.}}{14}
 \addvspace {10pt}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Interaction with WeChat}}{14}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Gamebook Database Table}}{16}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Gamebook Tree Representation}}{17}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Bitcoin Payment Flow}}{19}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Generated QR-code}}{20}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces WeChat Balance}}{21}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces REST URL Flow}}{22}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Interaction between WeChat and our server.}}{18}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Gamebook database table design}}{20}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Gamebook tree representation with nodes representing a page.}}{21}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Bitcoin payment interaction between a user's phone and the payment framework.}}{23}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Example of a generated QR-code rendered in the WeChat browser.}}{24}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Example of the response for a balance request in the wallet app.}}{25}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces REST URI routing.}}{26}
 \addvspace {10pt}
 \addvspace {10pt}
 \addvspace {10pt}

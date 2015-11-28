@@ -21,6 +21,35 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{pubkeytoadd}
+\BIBentryALTinterwordspacing
+``{File:PubKeyToAddr.png}.'' [Online]. Available:
+  \url{https://en.bitcoin.it/wiki/File:PubKeyToAddr.png}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Nakamoto2008}
+\BIBentryALTinterwordspacing
+S.~Nakamoto, ``{Bitcoin: A Peer-to-Peer Electronic Cash System},''
+  \emph{Consulted}, pp. 1--9, 2008. [Online]. Available:
+  \url{https://bitcoin.org/bitcoin.pdf}
+\BIBentrySTDinterwordspacing
+
+\bibitem{bitcoinOrg}
+\BIBentryALTinterwordspacing
+Bitcoin.org, ``{Bitcoin Developer Guide}.'' [Online]. Available:
+  \url{https://bitcoin.org/en/developer-guide}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Fielding2000}
+\BIBentryALTinterwordspacing
+R.~T. Fielding, ``{Architectural Styles and the Design of Network-based
+  Software Architectures},'' \emph{Building}, vol.~54, p. 162, 2000. [Online].
+  Available: \url{http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm}
+\BIBentrySTDinterwordspacing
+
+\bibitem{cyoa}
+Cyoa.com, ``{History of CYOA}.''
+
 \bibitem{tsys}
 \BIBentryALTinterwordspacing
 I.~{Total System Services}, ``{2014 Consumer Payments Study},'' Tech. Rep.,
@@ -33,11 +62,10 @@ Bulksms.com, ``{Premium Rated SMS}.'' [Online]. Available:
   \url{http://www.bulksms.com/products/premium-rated-sms.htm}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Nakamoto2008}
+\bibitem{IBM}
 \BIBentryALTinterwordspacing
-S.~Nakamoto, ``{Bitcoin: A Peer-to-Peer Electronic Cash System},''
-  \emph{Consulted}, pp. 1--9, 2008. [Online]. Available:
-  \url{https://bitcoin.org/bitcoin.pdf}
+IBM, ``{RESTful Web services: The basics}.'' [Online]. Available:
+  \url{http://www.ibm.com/developerworks/library/ws-restful/}
 \BIBentrySTDinterwordspacing
 
 \bibitem{PayPal2015}
@@ -46,19 +74,26 @@ PayPal, ``{PayPal},'' 2015. [Online]. Available:
   \url{https://www.paypal.com/za/webapps/mpp/about}
 \BIBentrySTDinterwordspacing
 
+\bibitem{bitcoinwiki}
+\BIBentryALTinterwordspacing
+Bitcoinwiki, ``{Transaction Fees}.'' [Online]. Available:
+  \url{https://en.bitcoin.it/wiki/Transaction\_fees}
+\BIBentrySTDinterwordspacing
+
 \bibitem{apple}
 \BIBentryALTinterwordspacing
 Apple, ``{Make in-app purchases}.'' [Online]. Available:
   \url{https://support.apple.com/en-za/HT202023}
 \BIBentrySTDinterwordspacing
 
-\bibitem{Ka2014}
-K.~Kaskaloglu, ``{Near Zero Bitcoin Transaction Fees Cannot Last Forever},'' in
-  \emph{The International Conference on Digital Security and Forensics
-  (DigitalSec2014)}, 2014, pp. 91--99.
-
 \bibitem{finmark}
 {FinMark Trust}, ``{FinScope South Africa 2014},'' Tech. Rep., 2014.
+
+\bibitem{visa}
+\BIBentryALTinterwordspacing
+Visa, ``{Privacy policy}.'' [Online]. Available:
+  \url{https://usa.visa.com/legal/privacy-policy.html}
+\BIBentrySTDinterwordspacing
 
 \bibitem{PayFast}
 \BIBentryALTinterwordspacing
@@ -72,10 +107,57 @@ Mxit, ``{What is Moola}.'' [Online]. Available:
   \url{http://web.support.mxit.com/articles/moola/what-is-moola}
 \BIBentrySTDinterwordspacing
 
+\bibitem{Johnson2001}
+D.~Johnson, A.~Menezes, and S.~Vanstone, ``{The Elliptic Curve Digital
+  Signature Algorithm (ECDSA)},'' \emph{International Journal of Information
+  Security}, vol.~1, no.~1, pp. 36--63, 2001.
+
+\bibitem{bwSecp}
+\BIBentryALTinterwordspacing
+B.~Wiki, ``{Secp256k1}.'' [Online]. Available:
+  \url{https://en.bitcoin.it/wiki/Secp256k1}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Research2010}
+C.~Research, ``{Standards for Efficient Cryptography 2 (SEC 2) : Recommended
+  Elliptic Curve Domain Parameters},'' vol.~2, no. Sec 2, pp. 1--33, 2010.
+
+\bibitem{CoG}
+\BIBentryALTinterwordspacing
+C.~of~Games, ``{Choice of Games}.'' [Online]. Available:
+  \url{https://www.choiceofgames.com/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{editthis}
+\BIBentryALTinterwordspacing
+{Create Your Own Story}, ``{Create Your Own Story}.'' [Online]. Available:
+  \url{http://editthis.info/create\_your\_own\_story/Main\_Page}
+\BIBentrySTDinterwordspacing
+
+\bibitem{mediawiki}
+Mediawiki.org, ``{Welcome to MediaWiki.org}.''
+
 \bibitem{Oracle.com}
 \BIBentryALTinterwordspacing
 Oracle.com, ``{What Are RESTful Web Services?}'' [Online]. Available:
   \url{https://docs.oracle.com/javaee/6/tutorial/doc/gijqy.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{Box2000}
+D.~Box, D.~Ehnebuske, A.~Layman, N.~Mendelsohn, L.~D. Corp, and H.~F. Nielsen,
+  ``{Simple Object Access Protocol ( SOAP ) 1 . 1 Table of Contents},'' no.
+  May, pp. 1--26, 2000.
+
+\bibitem{Halliday}
+\BIBentryALTinterwordspacing
+P.~Halliday, ``{Running a full Bitcoin node on AWS}.'' [Online]. Available:
+  \url{http://pghalliday.com/aws/bitcoin/2014/05/02/running-a-full-bitcoin-node-on-aws.html}
+\BIBentrySTDinterwordspacing
+
+\bibitem{testnet}
+\BIBentryALTinterwordspacing
+Bitcoinwiki, ``{Testnet}.'' [Online]. Available:
+  \url{https://en.bitcoin.it/wiki/Testnet}
 \BIBentrySTDinterwordspacing
 
 \bibitem{LLC}

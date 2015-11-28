@@ -7,15 +7,17 @@
 \select@language {english}
 \addvspace {10pt}
 \addvspace {10pt}
-\contentsline {table}{\numberline {1.1}{\ignorespaces Table of preferred online method of payment \cite {tsys}}}{2}
-\contentsline {table}{\numberline {1.2}{\ignorespaces Table of SMS payment payouts from bulksms.com \cite {bulksms.com}}}{3}
+\contentsline {table}{\numberline {1.1}{\ignorespaces Table of preferred online method of payment \cite {tsys}.}}{2}
+\contentsline {table}{\numberline {1.2}{\ignorespaces Table of SMS payment payouts from bulksms.com \cite {bulksms.com}.}}{3}
+\addvspace {10pt}
+\contentsline {table}{\numberline {2.1}{\ignorespaces HTTP Methods used in the REST Architecture\cite {IBM}.}}{11}
 \addvspace {10pt}
 \addvspace {10pt}
+\contentsline {table}{\numberline {4.1}{\ignorespaces Table of selected .htaccess flags.}}{27}
 \addvspace {10pt}
-\contentsline {table}{\numberline {4.1}{\ignorespaces Table of selected .htaccess flags}}{22}
-\addvspace {10pt}
-\contentsline {table}{\numberline {5.1}{\ignorespaces Table of selected HTTP status codes}}{23}
-\contentsline {table}{\numberline {5.2}{\ignorespaces Table of loading times in seconds}}{26}
-\contentsline {table}{\numberline {5.3}{\ignorespaces Table of ratings of individual parts of the system}}{28}
+\contentsline {table}{\numberline {5.1}{\ignorespaces Table of selected HTTP status codes.}}{28}
+\contentsline {table}{\numberline {5.2}{\ignorespaces Table of response times in seconds of our WeChat Official Accounts in comparison with an existing Official Account.}}{31}
+\contentsline {table}{\numberline {5.3}{\ignorespaces Table showing the results of a test to show the relationship between the transaction fee and the time it takes to complete the transaction.}}{33}
+\contentsline {table}{\numberline {5.4}{\ignorespaces Table of ratings of individual parts of the system.}}{35}
 \addvspace {10pt}
 \addvspace {10pt}

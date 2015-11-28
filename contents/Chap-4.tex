@@ -26,8 +26,9 @@ WeChat acts as an intermediary between the user and our server as seen in figure
 
 \begin{figure}
   \centering
+   \caption{Interaction between WeChat and our server.} 
     \includegraphics[width=0.7\textwidth]{figs/Wechat_interaction.pdf}
-   \caption{Interaction with WeChat} 
+  
    \label{fig:wechat_interaction}
 \end{figure}
 
@@ -36,17 +37,17 @@ WeChat acts as an intermediary between the user and our server as seen in figure
 
 WeChat uses a shared token hashing scheme to authenticate itself on our server. We provide WeChat with a unique string to use for authentication purposes. That string is then used in every request that is made to our server. WeChat uses the string we provided, a random nonce and the UNIX timestamp to create a signature. It sorts the string, timestamp and nonce and forms a single string from these three values. This single string is then hashed using the SHA256 hashing algorithm to generate a signature. When a request is made to our server, WeChat provides the nonce, the timestamp and the signature The message does not contain the unique string. Since we know the unique string, we can use the nonce and timestamp to also generate a signature. If the message comes from someone that possesses the same unique string, the signature that is provided must match the signature that we calculated.
 
-Thus, we can be reasonably certain that any request that is made to our server with a signature that is verified comes from WeChat and not an attacker. If our unique string is compromised somehow, someone will be able to make false requests to our server that appear valid. If this would happen, we can give WeChat a new unique string. 
+Therefore, we can be reasonably certain that any request that is made to our server with a signature that is verified comes from WeChat and not an attacker. If our unique string is compromised somehow, someone will be able to make false requests to our server that appear valid. If this would happen, we can give WeChat a new unique string. 
 
 \subsection{WeChat Interface}
 
 The WeChat Official Account interface works on a message-answer basis. Any message that the user sends in the Official Account dialog is forwarded to our server. When we configure our Official Account, we provide WeChat with a URL that points to the script that handles all messages from and to Wechat. This script verifies any incoming messages as described in section \ref{sct:wechat_security}.
 
-The incoming message is in XML format. It contains a unique identifier for every subscriber to the WeChat Official Account. It is important to note that the unique identifier is only unique for the specific Official Account. The identifier is not a global unique identifier for the entire WeChat platform. Thus, the same user will have two different identifiers in two different Official Accounts. This is important to remember, since we will be using two seperate Official Accounts.
+The incoming message is in XML format. It contains a unique identifier for every subscriber to the WeChat Official Account. It is important to note that the unique identifier is only unique for the specific Official Account. The identifier is not a global unique identifier for the entire WeChat platform. Therefore, the same user will have two different identifiers in two different Official Accounts. This is important to remember, since we will be using two seperate Official Accounts.
 
 The messages that are received must be interpreted and responded to accordingly. Since we will have applications that rely on previous messages and results, we need something to keep track of the user's current state. A state machine is required to look at the current state the user is in, look at the message they sent and accordingly determine what to reply and to what state to move to. 
 
-To keep track of the user's state, we will use a MySQL database as described in section \ref{sct:web_framework}. Thus, for each message received, we will read the user's current state from the database and apply the state machine logic to their message. We will then update their state in the database and reply with the message that the state machine determined.
+To keep track of the user's state, we will use a MySQL database as described in section \ref{sct:web_framework}. For each message received, we will read the user's current state from the database and apply the state machine logic to their message. We will then update their state in the database and reply with the message that the state machine determined.
 
 \subsection{Gamebook Design}
 \label{sct:gamebook_design}
@@ -63,8 +64,9 @@ Every book in our design is a table, and every page is an entry in the table. Ea
 
 \begin{figure}
   \centering
+    \caption{Gamebook database table design} 
     \includegraphics[width=0.7\textwidth]{figs/Gamebook_Database.pdf}
-   \caption{Gamebook Database Table} 
+   
    \label{fig:gamebook_database}
 \end{figure}
 
@@ -86,8 +88,9 @@ Since the Gamebook resembles a tree, we decided to display the tree using an org
 
 \begin{figure}
   \centering
+  \caption{Gamebook tree representation with nodes representing a page.} 
     \includegraphics[width=\textwidth]{figs/gamebook_tree.pdf}
-   \caption{Gamebook Tree Representation} 
+   
    \label{fig:gamebook_tree}
 \end{figure}
 
@@ -106,22 +109,23 @@ We chose the first method of storing the address, because it is simpler and has 
 \subsection{Bitcoin Interface Design}
 \label{sct:bitcoin_interface_design}
 
-Thus, we need to generate a Bitcoin address for each user. To do this, we use a a popular open-source PHP Bitcoin library called bitcoin-lib-php. One of the features of Bitcoin is that generating a Bitcoin wallet can be done locally. That means that the bitcoin-lib-php library generates a Bitcoin address on our server without connecting to the Bitcoin network. This has many advantages, including it does not use network bandwidth, it is fast and the private key never leaves our server.
+We need to generate a Bitcoin address for each user. To do this, we use a popular open-source PHP Bitcoin library called bitcoin-lib-php. One of the features of Bitcoin is that generating a Bitcoin wallet can be done locally. That means that the bitcoin-lib-php library generates a Bitcoin address on our server without connecting to the Bitcoin network. This has many advantages, including that it does not use network bandwidth, it is fast and the private key never leaves our server.
 
-We chose bitcoin-lib-php as our library, because it satisfies our requirements perfectly, it is open-source (and thus verifiable) and is decently documented. 
+We chose bitcoin-lib-php as our library, because it satisfies our requirements perfectly, it is open-source (and therefore verifiable) and is decently documented. 
 
 As mentioned in section \ref{sct:wechat_wallet_design}, by creating an address for each user, the user can more directly monitor his funds and transactions since it can be independently verified by using any software that is connected to the Bitcoin blockchain.
 
 The Bitcoin library allows us to create an address, create a Bitcoin transaction and sign a transaction. These are the core functions of Bitcoin. However, a transaction can not be created without information about the address or addresses that want to create the transaction. This information is called ``unspent outputs'' and, as the name suggests, are previously received transactions that are not yet spent. These unspent outputs contain all the information to build a transaction, including the value of the output, the transaction hash and the script type etc.
 
-These unspent outputs are only acquirable with access to the Blockchain and we do not run the Bitcoin software. Thus we do not have direct access to these outputs. From our requirements in section \ref{sct:bitcoin_interface}, we require a third-party Bitcoin interface to provide these outputs among other things. From the requirements listed in section \ref{sct:bitcoin_interface}, we decided to use chain.com. Chain.com satisfies all our requirements and is free at the time of writing. 
+These unspent outputs are only acquirable with access to the Blockchain and we do not run the Bitcoin software. Therefore, we do not have direct access to these outputs. From our requirements in section \ref{sct:bitcoin_interface}, we require a third-party Bitcoin interface to provide these outputs among other things. From the requirements listed in section \ref{sct:bitcoin_interface}, we decided to use chain.com. Chain.com satisfies all our requirements and is free at the time of writing. 
 
 During the progress of this project, chain.com has release version 2 of their API with the biggest change being that they can also sign a transaction for you. When we started, we had to sign the transaction ourselves. Signing the transaction ourselves exposes us to a smaller risk of compromising the security of the users' private key. We choose to still use version 1 of the API, because updating to version 2 will not have a significant effect on our proof of concept's overall outcome. The summary of the Bitcoin payment flow can be seen in figure \ref{fig:bitcoin_payment_flow}.
 
 \begin{figure}
   \centering
+    \caption{Bitcoin payment interaction between a user's phone and the payment framework.} 
     \includegraphics[width=\textwidth]{figs/Bitcoin_payment_flow.pdf}
-   \caption{Bitcoin Payment Flow} 
+   
    \label{fig:bitcoin_payment_flow}
 \end{figure}
 
@@ -130,14 +134,14 @@ During the progress of this project, chain.com has release version 2 of their AP
 The main function of a Bitcoin wallet application is to send and receive Bitcoin. A Bitcoin address is a string of 26 to 35 alphanumeric characters. Reading an address to someone is not practical due to the long length. A very common method of representing a Bitcoin address is by using a graphical QR-code. Another user can then scan a QR-code and receive the address to make the payment to.
 
 \subsubsection{Address to QR-code}
-Our first design specification is to represent the user's alphanumeric address as a QR-code image. There are several ways we can do this. The first method is to generate the QR-image on our server and send the image to the user on WeChat. The problem with this method is that our server will be responsible for generating images, and this is computationally intensive. The second method is using a webpage that generates the QR-code client-side using JavaScript. The WeChat Official Account allows us to open a link directly in WeChat. Thus, we can send the user a link of a webpage that will generate the QR-code in WeChat's built-in browser. With this method, computation is spread to the users and not a central server. 
+Our first design specification is to represent the user's alphanumeric address as a QR-code image. There are several ways we can do this. The first method is to generate the QR-image on our server and send the image to the user on WeChat. The problem with this method is that our server will be responsible for generating images, and this is computationally intensive. The second method is using a webpage that generates the QR-code client-side using JavaScript. The WeChat Official Account allows us to open a link directly in WeChat. Therefore, we can send the user a link of a webpage that will generate the QR-code in WeChat's built-in browser. With this method, computation is spread to the users and not a central server. 
 
 We chose the webpage method of generating the QR-codes. We wrote our own webpage that uses an Open Source JavaScript library to generate the QR-code. We encode the address to be generated in a GET request and send the link to the user. The link will look like this: \\https://domain.com/qr?address=1Bd5wrFxHYRkk4UCFttcPNMYzqJnQKfXUE\\This QR-code can then be generated when a user wants to receive a payment from someone. An example of a generated QR-code can be seen in figure \ref{fig:qr_code}.
 
 \begin{figure}
   \centering
     \includegraphics[width=0.5\textwidth]{figs/qr_code.jpg}
-   \caption{Generated QR-code} 
+   \caption{Example of a generated QR-code rendered in the WeChat browser.} 
    \label{fig:qr_code}
 \end{figure}
 
@@ -154,8 +158,9 @@ Getting the balance of the user's address is the second core feature that a Bitc
 
 \begin{figure}
   \centering
+    \caption{Example of the response for a balance request in the wallet app.} 
     \includegraphics[width=0.3\textwidth]{figs/wechat_balance.jpg}
-   \caption{WeChat Balance} 
+   
    \label{fig:wechat_balance}
 \end{figure}
 
@@ -168,20 +173,21 @@ The core process of making a payment is handled in section \ref{sct:bitcoin_inte
 
 There are many ways to implement a REST API. This is because of the ``black-box'' approach of REST. As such, the first major design decision that needs to be made is whether to use a REST framework or to build it from scratch. Using a REST framework would be easier and standardized and if the framework is maintained, it would also be secure.
 
-In spite of the advantages of using a REST framework, we decided to build it ourself. The motivation for choosing this method is that the author wanted to get a better understanding of how a REST API works on the low-level and felt that building it from scratch would give a better understanding. Thus, we will use the same tools to build the other parts of our system, ie. PHP and MySQL.
+In spite of the advantages of using a REST framework, we decided to build it ourself. The motivation for choosing this method is that the author wanted to get a better understanding of how a REST API works on the low-level and felt that building it from scratch would give a better understanding. Therefore, we will use the same tools to build the other parts of our system, ie. PHP and MySQL.
 
 \subsection{REST Endpoints}
 
 A PHP script is usually called in the following format: ``url/script.php''. However, for a REST API we need a clean URL in the format: ``url/script''. Since we are using an Apache server, we need to modify the ``.htaccess'' file with regular expressions.
 
-Thus, we have different regular expressions in the .htaccess file that will call a single script with the corresponding parameters from the request. The .htaccess file will only relay the parameters of the url to the PHP script. The PHP script will then apply logic to determine what function should be executed. 
+Therefore, we have different regular expressions in the .htaccess file that will call a single script with the corresponding parameters from the request. The .htaccess file will only relay the parameters of the url to the PHP script. The PHP script will then apply logic to determine what function should be executed. 
 
 The PHP script will firstly authenticate the developer, followed by the corresponding external API calls, database entries, response HTTP status code and JSON response data.
 
 \begin{figure}
   \centering
-    \includegraphics[width=0.8\textwidth]{figs/htaccess_file.pdf}
-   \caption{REST URL Flow} 
+    \caption{REST URI routing.} 
+    \includegraphics[width=\textwidth]{figs/htaccess_file.pdf}
+   
    \label{fig:htaccess_file}
 \end{figure}
 
@@ -201,17 +207,18 @@ The first RewriteRule matches queries with two parameters in the URI and turns t
 
 \begin{table}
 	\begin{center}
+    \caption{Table of selected .htaccess flags.} 
 		\begin{tabular}	{ | c | p{7cm} |}
 		\hline
-		Flag & Description \\ \hline
-		NC & No Case. Doesn't differentiate between upper- and lower case. \\ \hline
-		QSA & Query String Append. Adds the variables to the existing GET variables. \\ \hline
-		L & Last. If the rule matches, no further rules will be processed. \\ \hline
+		\textbf{Flag} & \textbf{Description} \\ \hline
+		\textbf{NC} & No Case. Do not differentiate between upper- and lower case. \\ \hline
+		\textbf{QSA} & Query String Append. Adds the variables to the existing GET variables. \\ \hline
+		\textbf{L} & Last. If the rule matches, no further rules will be processed. \\ \hline
 		
 		
 	   % \label{fig:htaccess_file}
 		\end{tabular}
-		\caption{Table of selected .htaccess flags} 
+		
 		\label{tbl:htaccess_flags}
 	\end{center}
 \end{table}
